@@ -1,0 +1,18 @@
+[package]
+name = "pytorch_wasm_lib"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#wasi-nn = { version = "0.2.1" }
+wasi-nn-safe = "^0"
+image = "0.23.14"
+thiserror = "1"
+
+#[features]
+## default is including ocr
+#default = ["ocr"]
+
+#ocr = ["wasi-ocr", "tokenizers"]
