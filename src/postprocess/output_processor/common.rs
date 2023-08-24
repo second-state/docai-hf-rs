@@ -13,6 +13,7 @@ pub(crate) fn sort_classification_results(buffer: &[f32]) -> Vec<InferenceResult
     results
 }
 
+#[allow(dead_code)]
 pub(crate) struct OutputBuffer{
     pub(crate) data_buffer: Vec<u8>,
     pub(crate) tensor_type: TensorType,

@@ -1,5 +1,5 @@
 use super::DocumentClassifier;
-use crate::tasks::common::{BaseTaskOptions};
+use crate::tasks::common::BaseTaskOptions;
 
 /// Configure the build options of a new **Document Classification** task instance.
 ///
@@ -29,13 +29,16 @@ impl<'model> DocumentClassifierBuilder<'model> {
         }
     }
 
-    base_task_options_impl!();
+    base_task_options_impl!(DocumentClassifier);
 
 
-    /// Use the build options to create a new task instance.
+    /// Use the build options and the buffer as the model data to create a new task instance.
     #[inline]
-    pub fn finalize(mut self) -> Result<DocumentClassifier<'model>, crate::Error> {
-        let buf = base_task_options_check_and_get_buf!(self);
+    pub fn build_from_buffer(
+        self,
+        buffer: impl AsRef<[u8]>,
+    ) -> Result<DocumentClassifier<'model>, crate::Error> {
+        let buf = buffer.as_ref();
 
         // // change the lifetime to 'static, because the buf will move to graph and will not be released.
         // let model_resource_ref = crate::model::parse_model(buf.as_ref())?;
@@ -50,9 +53,9 @@ impl<'model> DocumentClassifierBuilder<'model> {
 
         let graph = crate::GraphBuilder::new(
             crate::GraphEncoding::Pytorch,             // currently only tested for Pytorch models from HuggingFace
-            self.base_task_options.execution_target,
+            self.base_task_options.device,
         )
-        .build_from_shared_slices([buf])?;
+        .build_from_bytes([buf])?;
 
         return Ok(DocumentClassifier {
             build_options: self,
@@ -68,16 +71,7 @@ mod test {
 
     #[test]
     fn test_builder_check() {
-        assert!(DocumentClassifierBuilder::new().finalize().is_err());
-        assert!(DocumentClassifierBuilder::new()
-            .model_asset_buffer("".into())
-            .model_asset_path("")
-            .finalize()
-            .is_err());
-        assert!(DocumentClassifierBuilder::new()
-            .model_asset_path("")
-            .max_results(0)
-            .finalize()
-            .is_err());
+        assert!(DocumentClassifierBuilder::new().build_from_buffer([]).is_err());
+        // assert!(DocumentClassifierBuilder::new().build_from_file("").is_err());
     }
 }

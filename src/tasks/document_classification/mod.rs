@@ -1,10 +1,10 @@
 mod builder;
-use std::process::Output;
+
 
 pub use builder::DocumentClassifierBuilder;
 
-use crate::preprocess::{InputProcessingOptions, ImageProcessor, DeitImageProcessor};
-use crate::postprocess::{OutputBuffer ,InferenceResult, ClassificationOutputProcessor, DIT_CLASSIFICATION_CLASSES};
+use crate::preprocess::{InputProcessingOptions, DeitImageProcessor};
+use crate::postprocess::{ClassificationOutputProcessor, DIT_CLASSIFICATION_CLASSES, ClassificationResult};
 use crate::{Error, Graph, GraphExecutionContext, TensorType};
 
 /// Performs classification on images and video frames.
@@ -59,9 +59,7 @@ impl<'model> DocumentClassifier<'model> {
 
     /// Classify one image using a new session.
     #[inline(always)]
-    pub fn classify(&self, input: &str) -> Result<Vec<InferenceResult>, Error> {
-        // let x = self.new_session()?;
-        // x.classify(input)
+    pub fn classify(&self, input: &str) -> Result<Vec<ClassificationResult>, Error> {
         self.new_session()?.classify(input)
     }
 }
@@ -81,12 +79,12 @@ pub struct DocumentClassifierSession<'model>{
 
 impl<'model> DocumentClassifierSession<'model> {
     #[inline(always)]
-    fn compute(&mut self)-> Result<Vec<InferenceResult>, Error> {
+    fn compute(&mut self)-> Result<Vec<ClassificationResult>, Error> {
         self.execution_ctx.set_input(
             0,
             self.image_tensor_type,
             self.image_tensor_shape,
-            self.image_tensor_buf.as_ref(),
+            self.image_tensor_buf.as_slice(),
         )?;
 
         self.execution_ctx.compute()?;
@@ -110,7 +108,7 @@ impl<'model> DocumentClassifierSession<'model> {
 
     /// Classify one image, reuse this session data to speedup.
     #[inline(always)]
-    pub fn classify(&mut self, input: &str)-> Result<Vec<InferenceResult>, Error> {
+    pub fn classify(&mut self, input: &str)-> Result<Vec<ClassificationResult>, Error> {
         self.image_tensor_buf = self.input_processing_options.image_processor.process_image(input);
         self.compute()
     }

@@ -277,7 +277,7 @@ version = "0.1.0"
 dependencies = [
  "image",
  "thiserror",
- "wasi-nn-safe",
+ "wasi-nn",
 ]
 
 [[package]]
@@ -372,10 +372,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b15811caf2415fb889178633e7724bad2509101cde276048e013b9def5e51fa0"
 
 [[package]]
-name = "wasi-nn-safe"
-version = "0.0.5"
+name = "wasi-nn"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "33b0f56a5477cdcb76ad37acca9d0bc6444b3805447dfb57f7414c39294fb6d4"
+checksum = "aa4541d3bf5ef0833f41834b1df9900fb79551178418c86679eab2285ebe817d"
 dependencies = [
  "thiserror",
 ]

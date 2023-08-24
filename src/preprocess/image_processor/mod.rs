@@ -12,6 +12,7 @@ pub trait ImageProcessor<'model>: 'model {
 }
 
 // DeitImageProcessor
+#[allow(dead_code)]
 pub struct DeitImageProcessor<'model>{
     do_resize : bool,
     do_normalize : bool,
@@ -57,8 +58,8 @@ impl<'model> ImageProcessor<'model> for DeitImageProcessor<'model>{
         let mut img_buf = Vec::new();
         file_img.read_to_end(&mut img_buf).unwrap();
         let img: ImageBuffer<image::Rgb<u8>, Vec<u8>> = image::load_from_memory(&img_buf).unwrap().to_rgb8();
-        let mut res_img:ImageBuffer<image::Rgb<u8>, Vec<u8>>;
-        let mut flattened_image:Vec<f32>;
+        let res_img:ImageBuffer<image::Rgb<u8>, Vec<u8>>;
+        let flattened_image:Vec<f32>;
         
         if self.do_resize{
             res_img = resize_image(&img, self.crop_image_width, self.crop_image_height, self.resize_filter);

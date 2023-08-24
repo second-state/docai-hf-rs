@@ -1,4 +1,4 @@
-use image::{io::Reader as Reader, DynamicImage, GenericImageView, ImageBuffer};
+use image::ImageBuffer;
 
 pub(crate) fn resize_image(img: &ImageBuffer<image::Rgb<u8>, Vec<u8>>, image_width:f32, image_height:f32, resize_filter:image::imageops::FilterType)->ImageBuffer<image::Rgb<u8>, Vec<u8>> { //-> ImageBuffer{
     let resized =

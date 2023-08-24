@@ -22,11 +22,10 @@ pub mod tasks;
 
 
 pub use error::Error;
-pub use wasi_nn_safe::GraphExecutionTarget as Device;
-use wasi_nn_safe::{
-    Graph, GraphBuilder, GraphEncoding, GraphExecutionContext, SharedSlice, TensorType,
+pub use wasi_nn::ExecutionTarget as Device;
+use wasi_nn::{
+    Graph, GraphBuilder, GraphEncoding, GraphExecutionContext, TensorType,
 };
-// pub use util::SharedSlice;
 
 #[cfg(doc)]
 use tasks::*;
