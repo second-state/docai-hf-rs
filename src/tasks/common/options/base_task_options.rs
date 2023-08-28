@@ -1,5 +1,7 @@
+// "This file is licensed under Apache 2.0 and it is originally developed by yanghaku for [WasmEdge/mediapipe-rs](https://github.com/WasmEdge/mediapipe-rs)"
+
 // A file to define the basic options used by each 
-// task such as stroing path of model weights 
+// task such as string path of model weights 
 
 pub(crate) struct BaseTaskOptions {
     /// The device to run the models.

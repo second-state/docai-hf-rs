@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# "This file refers [WasmEdge/mediapipe-rs](https://github.com/WasmEdge/mediapipe-rs) licensed under Apache 2.0 and originally developed by yanghaku for WasmEdge"
+
 # Init the WasmEdge environment  (with wasi-nn plugin and pytorch backend)
 
 set -ex

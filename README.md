@@ -110,3 +110,6 @@ Score:         4.50600290
 Index:         1
 
 ```    
+##  Notice
+
+This work is made possible by **Microsoft's work on [Hugging Faces](https://huggingface.co/)** and **[yanghaku](https://github.com/yanghaku)'s work on [WasmEdge/mediapipe-rs](https://github.com/WasmEdge/mediapipe-rs)**.

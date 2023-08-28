@@ -1,3 +1,5 @@
+// "This file refers [WasmEdge/mediapipe-rs](https://github.com/WasmEdge/mediapipe-rs) licensed under Apache 2.0 and originally developed by yanghaku for WasmEdge"
+
 use super::DocumentClassifier;
 use crate::tasks::common::BaseTaskOptions;
 

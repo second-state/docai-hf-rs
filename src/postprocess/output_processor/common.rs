@@ -1,3 +1,5 @@
+// "This file refers [WasmEdge/mediapipe-rs](https://github.com/WasmEdge/mediapipe-rs) licensed under Apache 2.0 and originally developed by yanghaku for WasmEdge"
+
 use super::*;
 
 // Sort the buffer of probabilities. The graph places the match probability for each class at the

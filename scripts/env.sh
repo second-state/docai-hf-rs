@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# "This file refers [WasmEdge/mediapipe-rs](https://github.com/WasmEdge/mediapipe-rs) licensed under Apache 2.0 and originally developed by yanghaku for WasmEdge"
+
 WASMEDGE_DEFAULT_PATH=${HOME}/.wasmedge
 
 # if install wasmedge in custom path, please set the variable `WASMEDGE_PATH` before use the env.sh
