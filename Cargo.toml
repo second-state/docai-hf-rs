@@ -1,0 +1,25 @@
+[package]
+name = "docai_hf_rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package.metadata.docs.rs]
+all-features = true
+# only build for wasm32-wasi now
+default-target = "wasm32-wasi"
+targets = ["wasm32-wasi"]
+
+include = [
+    "LICENSE",
+    "README.md",
+    "Cargo.toml",
+    "/src",
+]
+
+[dependencies]
+wasi-nn = "0.4.0"
+#wasi-nn-safe = "^0"
+image = "0.23.14"
+thiserror = "1"
