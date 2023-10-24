@@ -30,12 +30,12 @@ build_wasmedge_from_source_with_wasi_nn_pytorch() {
   # install requirements
   apt update && apt install git software-properties-common libboost-all-dev llvm-14-dev liblld-14-dev cmake ninja-build gcc g++ -y
 
-  REPO_CURL="https://github.com/WasmEdge/WasmEdge.git"
-  REPO_BRANCH="master"
+  # using the latest stable release : WasmEdge 0.13.4 to build from source 
+  # Download the 0.13.4 source archive and extract it
+  wget https://github.com/WasmEdge/WasmEdge/releases/download/0.13.4/WasmEdge-0.13.4-src.tar.gz
+  tar -xzvf WasmEdge-0.13.4-src.tar.gz
 
-  git clone "${REPO_CURL}"
-  pushd WasmEdge
-  git checkout "${REPO_BRANCH}"
+  pushd wasmedge
   mkdir build && pushd build
   cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=Release \
     -DWASMEDGE_PLUGIN_WASI_NN_BACKEND="PyTorch" -DCMAKE_INSTALL_PREFIX="${WASMEDGE_PATH}"
@@ -43,7 +43,7 @@ build_wasmedge_from_source_with_wasi_nn_pytorch() {
 
   popd
   popd
-  rm -rf "$(pwd)"/WasmEdge
+  rm -rf "$(pwd)"/wasmedge
 }
 
 download_wasmedge_pytorch_deps

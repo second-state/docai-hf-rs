@@ -97,7 +97,7 @@ Example input:
 Example output in console:
 
 ```console
-$ cargo run --release --example document_classification -- examples/assets/models/dit-base-finetuned-rvlcdip-jit-torch-1.8.2-cpu.pt examples/assets/testdata/document.png
+$ cargo run --release --example document_classification -- assets/models/dit-base-finetuned-rvlcdip-jit-torch-1.8.2-cpu.pt assets/testdata/document.png
 
    Compiling pytorch_wasm_lib v0.1.0 (/home/sarrah/1_data/wasmedge_intern/pytorch-wasm-lib)
     Finished release [optimized] target(s) in 0.21s
