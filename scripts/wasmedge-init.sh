@@ -34,7 +34,8 @@ build_wasmedge_from_source_with_wasi_nn_pytorch() {
   # Download the 0.13.4 source archive and extract it
   wget https://github.com/WasmEdge/WasmEdge/releases/download/0.13.4/WasmEdge-0.13.4-src.tar.gz
   tar -xzvf WasmEdge-0.13.4-src.tar.gz
-
+  rm -f WasmEdge-0.13.4-src.tar.gz
+  
   pushd wasmedge
   mkdir build && pushd build
   cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=Release \
