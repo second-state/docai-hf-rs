@@ -1,0 +1,18 @@
+pub const DIT_CLASSIFICATION_CLASSES: [&str; 16] = [
+    "letter", 
+    "form", 
+    "email", 
+    "handwritten", 
+    "advertisement", 
+    "scientific report", 
+    "scientific publication", 
+    "specification", 
+    "file folder", 
+    "news article", 
+    "budget", 
+    "invoice", 
+    "presentation", 
+    "questionnaire", 
+    "resume", 
+    "memo",
+];
