@@ -6,7 +6,7 @@ fn parse_args() -> Result<(String, String), Box<dyn std::error::Error>> {
     Ok((args[1].clone(), args[2].clone()))
 }
 
-use pytorch_wasm_lib::tasks::DocumentClassifierBuilder;
+use docai_hf_rs::tasks::DocumentClassifierBuilder;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (model_path, img_path) = parse_args()?;

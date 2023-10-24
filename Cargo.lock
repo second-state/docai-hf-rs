@@ -113,6 +113,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "docai_hf_rs"
+version = "0.1.0"
+dependencies = [
+ "image",
+ "thiserror",
+ "wasi-nn",
+]
+
+[[package]]
 name = "either"
 version = "1.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -269,15 +278,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6aeca18b86b413c660b781aa319e4e2648a3e6f9eadc9b47e9038e6fe9f3451b"
 dependencies = [
  "unicode-ident",
-]
-
-[[package]]
-name = "pytorch_wasm_lib"
-version = "0.1.0"
-dependencies = [
- "image",
- "thiserror",
- "wasi-nn",
 ]
 
 [[package]]

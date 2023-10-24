@@ -69,7 +69,7 @@ fn parse_args() -> Result<(String, String), Box<dyn std::error::Error>> {
     Ok((args[1].clone(), args[2].clone()))
 }
 
-use pytorch_wasm_lib::tasks::DocumentClassifierBuilder;
+use docai_hf_rs::tasks::DocumentClassifierBuilder;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (model_path, img_path) = parse_args()?;
@@ -99,7 +99,7 @@ Example output in console:
 ```console
 $ cargo run --release --example document_classification -- assets/models/dit-base-finetuned-rvlcdip-jit-torch-1.8.2-cpu.pt assets/testdata/document.png
 
-   Compiling pytorch_wasm_lib v0.1.0 (/home/sarrah/1_data/wasmedge_intern/pytorch-wasm-lib)
+   Compiling docai_hf_rs v0.1.0 (/home/sarrah/1_data/wasmedge_intern/pytorch-wasm-lib)
     Finished release [optimized] target(s) in 0.21s
      Running `/home/sarrah/1_data/wasmedge_intern/pytorch-wasm-lib/./scripts/wasmedge-runner.sh target/wasm32-wasi/release/examples/document_classification.wasm assets/models/dit-base-finetuned-rvlcdip-jit-torch-1.8.2-cpu.pt assets/testdata/document.png`
      
